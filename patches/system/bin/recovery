@@ -1,0 +1,80 @@
+#!/system/bin/sh
+
+# The boot partition mount point
+BOOT_PARTITION_MOUNT_POINT=/boot
+
+# The partition we wish to boot from
+BOOT_PARTITION=/dev/block/mmcblk1p1
+
+# How long we've been waiting for the boot partition to pop up (in 100ms segments)
+BOOT_PARITITON_WAIT_COUNTER=0
+
+# The init script we're hoping to execute instead of recovery
+INIT_FILE=boot/init
+
+# Setup binder (required for libhybris and can be done early regardless of the chosen boot route)
+mkdir -p /dev/binderfs
+mount -t binder binder /dev/binderfs
+chmod 755 /dev/binderfs
+ln -s /dev/binderfs/binder /dev/binder
+ln -s /dev/binderfs/binder /dev/hwbinder
+ln -s /dev/binderfs/binder /dev/vndbinder
+
+# Wait for the boot partition to get detected
+while [ ! -b $BOOT_PARTITION ]
+do
+	# Wait 100ms
+	sleep 0.1
+
+	# Increment the counter
+	BOOT_PARTITION_WAIT_COUNTER=$((BOOT_PARTITION_WAIT_COUNTER + 1))
+	
+	# We've been waiting for more than 5 seconds
+	if [ $BOOT_PARTITION_WAIT_COUNTER -ge 50 ]
+	then
+		# Stop waiting
+		break
+	fi
+done
+
+# The boot partition has been detected
+if [ -b $BOOT_PARTITION ]
+then
+	# Mount the boot partition
+	mkdir $BOOT_PARTITION_MOUNT_POINT
+	mount -t exfat $BOOT_PARTITION $BOOT_PARTITION_MOUNT_POINT
+
+	# The partition contains a init script
+	if [ -f $BOOT_PARTITION_MOUNT_POINT/$INIT_FILE ]
+	then
+		# Bind mount the firmware (needed for libhybris but breaks the stock recovery)
+		mkdir -p /lib/firmware
+		mount -o bind /firmware /lib/firmware
+		mkdir -p /vendor/firmware
+		mount -o bind /firmware /vendor/firmware
+
+		# Enable adbd (for debugging purposes)
+		start adbd
+		setprop sys.usb.config adb
+		setprop sys.usb.state adb
+		setprop sys.usb.ffs.ready 1
+
+		# To avoid semi-bricks, always set the boot device back to emmc
+		/system/bin/erasebootrecord
+
+		# Execute the init script (this one should never return)
+		/system/bin/sh $BOOT_PARTITION_MOUNT_POINT/$INIT_FILE
+
+		# Sync data to disk
+		sync
+
+		# Power the device off
+		echo o > /proc/sysrq-trigger
+	else
+		# Unmount the boot partition
+		umount $BOOT_PARTITION_MOUNT_POINT
+	fi
+fi
+
+# Execute the real recovery (to serve as both a fallback and to keep original recovery behavior intact)
+/system/bin/realrecovery

@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+# Wipe out the boot-recovery cmdline
+dd "if=/dev/zero" "of=/dev/block/by-name/misc" bs=2048 count=1 conv=notrunc >/dev/null 2>&1
+
+# Mount the metadata partition
+mount /dev/block/by-name/metadata /metadata >/dev/null 2>&1
+
+# Erase the persist.sys.boot.reason property
+rm /metadata/bootstat/persist.sys.boot.reason >/dev/null 2>&1
+
+# Unmount the metadata partition
+umount /metadata >/dev/null 2>&1
+
+# Sync the changes to disk
+sync >/dev/null 2>&1
