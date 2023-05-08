@@ -20,7 +20,6 @@ done
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 export HOME=/root
 export SHELL=/bin/sh
-export SDL_NOMOUSE=1
 
 # And hand off control to the rootfs
 chroot /root /usr/bin/init
