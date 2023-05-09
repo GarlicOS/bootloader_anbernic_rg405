@@ -1,0 +1,13 @@
+#!/system/bin/sh
+
+# Device Information
+export DEVICE_MANUFACTURER=`getprop ro.product.manufacturer`
+export DEVICE_MODEL=`getprop ro.product.model`
+export DEVICE_NAME="$DEVICE_MANUFACTURER $DEVICE_MODEL"
+export DEVICE_CODENAME=`echo $DEVICE_MODEL | tr "[:upper:]" "[:lower:]"`
+
+# Rotate the device screen 90°CW
+export SDL_SCREEN_ROTATION=1
+
+# Skip the SDL encoder ID check
+export SDL_SKIP_ENCODER_ID_CHECK=1

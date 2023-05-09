@@ -62,11 +62,8 @@ then
 		# To avoid semi-bricks, always set the boot device back to emmc
 		/system/bin/erasebootrecord
 
-		# Tell SDL to skip the encoder id check (needed for T618 to enumerate resolutions properly)
-		export SDL_SKIP_ENCODER_ID_CHECK=1
-
-		# Tell SDL to rotate the framebuffer 90° clockwise (needed for RG405M due to its portrait screen)
-		export SDL_SCREEN_ROTATION=1
+		# Run the deviceinfo script (sets necessary, device-specific environment variables)
+		source /device-resources/deviceinfo
 
 		# Execute the init script (this one should never return)
 		/system/bin/sh $BOOT_PARTITION_MOUNT_POINT/$INIT_FILE
