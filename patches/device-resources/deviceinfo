@@ -11,3 +11,6 @@ export SDL_SCREEN_ROTATION=1
 
 # Skip the SDL encoder ID check
 export SDL_SKIP_ENCODER_ID_CHECK=1
+
+# Tell SDL to blacklist unwanted joysticks
+export SDL_JOYSTICK_DEVICE_BLACKLIST=touch_joypad:retrogame_joypad
