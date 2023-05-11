@@ -17,3 +17,6 @@ export SDL_JOYSTICK_DEVICE_BLACKLIST=touch_joypad:retrogame_joypad
 
 # Override the ALSA default period size
 export ALSA_DEFAULT_PERIOD_SIZE=960
+
+# Force ALSA into MMAP mode
+export ALSA_FORCE_MMAP=1
