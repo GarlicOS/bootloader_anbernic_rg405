@@ -20,3 +20,12 @@ export ALSA_DEFAULT_PERIOD_SIZE=960
 
 # Force ALSA into MMAP mode
 export ALSA_FORCE_MMAP=1
+
+# The location of the brightness control
+export LCD_BRIGHTNESS_PATH=/sys/devices/platform/sprd_backlight/backlight/sprd_backlight/brightness
+
+# The location of the maximum brightness control value or the value itself
+export LCD_BRIGHTNESS_MAXIMUM=/sys/devices/platform/sprd_backlight/backlight/sprd_backlight/max_brightness
+
+# The minimum brightness value
+export LCD_BRIGHTNESS_MINIMUM=1
