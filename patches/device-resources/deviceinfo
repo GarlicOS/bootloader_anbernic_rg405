@@ -32,3 +32,6 @@ export LCD_BRIGHTNESS_MINIMUM=1
 
 # The battery capacity path
 export BATTERY_CAPACITY_PATH=/sys/class/power_supply/battery/capacity
+
+# The charger online path
+export CHARGER_ONLINE_PATH=/sys/class/power_supply/usb/online
