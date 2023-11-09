@@ -1,8 +1,8 @@
 #!/system/bin/sh
 
 # Device Information
-export DEVICE_MANUFACTURER=`getprop ro.product.manufacturer`
-export DEVICE_MODEL=`getprop ro.product.model`
+export DEVICE_MANUFACTURER="Anbernic"
+export DEVICE_MODEL="RG405"
 export DEVICE_NAME="$DEVICE_MANUFACTURER $DEVICE_MODEL"
 export DEVICE_CODENAME=`echo $DEVICE_MODEL | tr "[:upper:]" "[:lower:]"`
 

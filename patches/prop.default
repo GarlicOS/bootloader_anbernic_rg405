@@ -5,7 +5,7 @@
 ro.product.system.brand=UNISOC
 ro.product.system.device=ums512_1h10
 ro.product.system.manufacturer=Anbernic
-ro.product.system.model=RG405M
+ro.product.system.model=RG405
 ro.product.system.name=Anbernic
 ro.system.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.system.product.cpu.abilist32=armeabi-v7a,armeabi
@@ -52,7 +52,7 @@ ro.product.cpu.abi=arm64-v8a
 ro.product.locale=en-US
 ro.wifi.channels=
 # ro.build.product is obsolete; use ro.product.device
-ro.build.product=RG405M
+ro.build.product=RG405
 # Do not try to parse description or thumbprint
 ro.build.description=V1.15
 # end build properties
@@ -60,7 +60,7 @@ ro.build.description=V1.15
 ro.fota.platform=T618
 ro.fota.type=pad
 ro.fota.oem=anbernic
-ro.fota.device=RG405M
+ro.fota.device=RG405
 ro.fota.version=SP1A.210812.016_20230323-2327
 # end fota properties
 ####################################
@@ -130,7 +130,7 @@ Target FotaInfo:
 ro.product.vendor.brand=UNISOC
 ro.product.vendor.device=ums512_1h10
 ro.product.vendor.manufacturer=Anbernic
-ro.product.vendor.model=RG405M
+ro.product.vendor.model=RG405
 ro.product.vendor.name=ums512_1h10_Natv
 ro.vendor.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.vendor.product.cpu.abilist32=armeabi-v7a,armeabi
@@ -223,7 +223,7 @@ sys.usb.controller=musb-hdrc.0.auto
 ro.soc.model=T618
 ro.fota.oem=anbernic
 ro.fota.platform=T618
-ro.fota.device=RG405M
+ro.fota.device=RG405
 ro.fota.type=pad
 ro.soc.manufacturer=Spreadtrum
 persist.vendor.cam.hdr.version=3
@@ -427,7 +427,7 @@ Target FotaInfo:
 ro.product.odm.brand=UNISOC
 ro.product.odm.device=ums512_1h10
 ro.product.odm.manufacturer=Anbernic
-ro.product.odm.model=RG405M
+ro.product.odm.model=RG405
 ro.product.odm.name=ums512_1h10_Natv
 ro.odm.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.odm.product.cpu.abilist32=armeabi-v7a,armeabi
@@ -459,7 +459,7 @@ Target FotaInfo:
 ro.product.product.brand=UNISOC
 ro.product.product.device=ums512_1h10
 ro.product.product.manufacturer=Anbernic
-ro.product.product.model=RG405M
+ro.product.product.model=RG405
 ro.product.product.name=ums512_1h10_Natv
 ro.product.build.date=Thu Mar 23 22:55:27 CST 2023
 ro.product.build.date.utc=1679583327
@@ -505,7 +505,7 @@ Target FotaInfo:
 ro.product.system_ext.brand=UNISOC
 ro.product.system_ext.device=ums512_1h10
 ro.product.system_ext.manufacturer=Anbernic
-ro.product.system_ext.model=RG405M
+ro.product.system_ext.model=RG405
 ro.product.system_ext.name=ums512_1h10_Natv
 ro.system_ext.build.date=Thu Mar 23 22:55:27 CST 2023
 ro.system_ext.build.date.utc=1679583327
@@ -569,7 +569,7 @@ Target FotaInfo:
 ro.product.vendor_dlkm.brand=UNISOC
 ro.product.vendor_dlkm.device=ums512_1h10
 ro.product.vendor_dlkm.manufacturer=Anbernic
-ro.product.vendor_dlkm.model=RG405M
+ro.product.vendor_dlkm.model=RG405
 ro.product.vendor_dlkm.name=ums512_1h10_Natv
 ro.vendor_dlkm.build.date=Thu Mar 23 22:55:27 CST 2023
 ro.vendor_dlkm.build.date.utc=1679583327

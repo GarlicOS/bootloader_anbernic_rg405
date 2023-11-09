@@ -1,5 +1,5 @@
 This is a sample implementation of a MicroSD card compatible bootloader
-for Anbernic's RG405M T618-based gaming handheld.
+for Anbernic's RG405M/RG405V T618-based gaming handhelds.
 
 It works by hijacking the device's recovery mode and re-routing the
 boot flow into a 1st stage init script located in an exfat-formatted
