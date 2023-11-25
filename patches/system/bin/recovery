@@ -7,7 +7,7 @@ BOOT_PARTITION_MOUNT_POINT=/boot
 BOOT_PARTITION=/dev/block/mmcblk1p1
 
 # How long we've been waiting for the boot partition to pop up (in 100ms segments)
-BOOT_PARITITON_WAIT_COUNTER=0
+BOOT_PARTITION_WAIT_COUNTER=0
 
 # The init script we're hoping to execute instead of recovery
 INIT_FILE=boot/init
